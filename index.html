@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta
+       content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0'
+       name='viewport'>
+<title>DataViz</title>
+ 
+<script type="text/javascript" src="js/d3.js"></script>
+<script type="text/javascript" src="js/crossfilter.js"></script>
+<script type="text/javascript" src="js/dc.js"></script>
+<script type="text/javascript" src="dataviz.js"></script>
+ 
+<link href='css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+<link href='css/dc.css' rel='stylesheet' type='text/css'>
+<style type="text/css">
+body {
+       padding-top: 40px;
+}
+ 
+.span4 {
+       margin-left: 40px;
+}
+ 
+.span4 {
+       margin-left: 0;
+       padding-left: 20px;
+}
+ 
+.span8 {
+       padding-left: 10;
+}
+</style>
+</head>
+ 
+<body>
+  <div class="jumbotron">
+    <div class="container">
+      <h3>
+				Visualising Ireland's <a href="https://www.propertypriceregister.ie/website/npsra/pprweb.nsf/page/ppr-home-en">Property Price Register</a>  <small>(with thanks to <a href="http://nickqizhu.github.io/dc.js/">D3</a>, <a href="http://nickqizhu.github.io/dc.js/">crossfilter</a> and <a href="http://nickqizhu.github.io/dc.js/">dc.js)</a></small>
+			</h3>
+      <p>
+			 The visualisations below use <a href="http://d3js.org">D3</a>, <a href="http://nickqizhu.github.io/dc.js/">dc.js</a> and <a href="http://square.github.io/crossfilter/">crossfilter</a> to represent house sale data taken from <a href="https://www.propertypriceregister.ie/website/npsra/pprweb.nsf/page/ppr-home-en">Ireland's Property Price Register</a>. 
+
+			Click and drag and watch the graphs move and then when that gets old see ...
+			 <ol>
+				 <li>How many sales were there in <a href="javascript:filterYears([2011, 2012])">2011 and 2012</a>?
+				 <li>Which months are the <a href="javascript:filterMonths(['4.May', '8.September'])">busiest</a>?</li>
+				 <li>How does <a href="javascript:filterBubble(['Cork', 'Dublin'])">Cork compare to Dublin</a>?</li>
+				 <li>What happened to average house prices in Wicklow between <a href="javascript:filterCountyByYear('Wicklow', 2010)">2010</a> and <a href="javascript:filterCountyByYear('Wicklow', 2013)">2013</a>?</li>
+				 <li>Are houses sold on <a href="javascript:filterDays(['6.Saturday', '0.Sunday'])">the weekend</a>?</li>
+				 <li>etc</li>
+				 </ol>
+		 
+			</p>
+			<p>
+				The dataset in use here is not dynamically retrieved from the PPR website, it is taken from a static grab of all house sale data in the PPR as of Nov, 15 2013. The primary motivation here is to play around with data visualisation rather than to provide yet another PPR search tool; see <a href="http://www.myhome.ie/priceregister">this</a> and <a href="http://www.daft.ie/priceregister/">that</a> for interactive PPR search tools.
+			</p>
+		 <div class='row'><div class='span12'>
+		 	
+			 <hr>
+		 </div>
+        <div class="span12 pull-right" id="info-data-count">
+               <span class="filter-count "></span> selected out of <span
+                      class="total-count "></span> records | <a class="reset btn btn-primary btn-sm" id="reset"
+                      href="javascript:reset()">Reset All</a>
+        </div>
+    </div>
+  </div>
+	
+       <div class='container' id='main-container'>
+                           <div class='row-fluid'>
+                                  <div class='remaining-graphs span8'>
+                                         <div class='row-fluid'>
+                                                <div class='bubble-graph span12' id='chart-bubble-counties'>
+                                                       <h5>Average Price (x-axis) // Number of Sales (y-axis)</h5>
+                                                </div>
+                                         </div>
+                                         <div class='row-fluid'>
+                                                <div class='dc-time-chart span12' id='chart-line-date-count'>
+                                                       <h5>Date (x-axis) // Number of Sales (y-axis)</h5>
+                                                </div>
+                                         </div>
+                                  </div>
+                                  <div class='remaining-graphs span4'>
+                                         <div class='row-fluid'>
+                                                <div class='row-graph span12' id='chart-ring-years'
+                                                       style='color: black;'>
+                                                       <h5>Number of Sales Per Year</h5>
+                                                </div>
+                                         </div>
+                                         <div class='row-fluid'>
+                                                <div class='row-graph span12' id='chart-row-months'
+                                                       style='color: black;'>
+                                                       <h5>Number of Sales Per Month</h5>
+                                                </div>
+                                         </div>
+                                         <div class='row-fluid'>
+                                                <div class='row-graph span12' id='chart-row-days'
+                                                       style='color: black;'>
+                                                       <h5>Number of Sales Per Day</h5>
+                                                </div>
+                                         </div>
+                                  </div>
+                                  <div class='remaining-graphs span12'>
+                                         <div class='row-fluid'>
+                                                <h5>Raw Data Table</h5>
+                                                <table class='dc-data-table table table-hover table-condensed table-striped'
+                                                       id='raw-data-table'>
+                                                       <thead>
+                                                              <tr class='header'>
+                                                                     <th>Date</th>
+                                                                     <th>Price</th>
+                                                                     <th>Address</th>
+                                                                     <th>County</th>
+                                                                     <th>Post Code</th>
+                                                                     <th>Full Market Price?</th>
+                                                                     <th>Excludes VAT?</th>
+                                                              </tr>
+                                                       </thead>
+                                                </table>
+                                         </div>
+                                  </div>
+                           </div>
+                     </div>
+              </div>
+       </div>
+       <div id='footer'>
+              <div class='container'>
+                     <footer class='text-center'></footer>
+              </div>
+       </div>
+</body>
+</html>
