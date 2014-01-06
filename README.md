@@ -3,7 +3,7 @@ Data visualisation using data from Ireland's Property Price Register
 
 ## About
 
-A quick hack using data from Ireland's [Property Price Register](https://www.propertypriceregister.ie/website/npsra/pprweb.nsf/page/ppr-home-en) to play around with [D3](http://d3js.org), [dc.js](http://nickqizhu.github.io/dc.js/) and [crossfilter](http://square.github.io/crossfilter/) data visualisation. The dataset in use here is not dynamically retrieved from the PPR website, it is taken from a static grab of all house sale data in the PPR as of Nov, 15 2013. The primary motivation here is to play around with data visualisation rather than to provide yet another PPR search tool.
+A quick hack using data from Ireland's [Property Price Register](https://www.propertypriceregister.ie/website/npsra/pprweb.nsf/page/ppr-home-en) to play around with [D3](http://d3js.org), [dc.js](http://nickqizhu.github.io/dc.js/) and [crossfilter](http://square.github.io/crossfilter/) data visualisation. The dataset in use here is not dynamically retrieved from the PPR website, it is taken from a static grab of house sale data from the PPR. The primary motivation here is to play around with data visualisation rather than to provide yet another PPR search tool.
 
 ## Disclaimer
 
