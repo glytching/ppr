@@ -5,7 +5,7 @@
 <meta
        content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0'
        name='viewport'>
-<title>DataViz</title>
+<title>PPR Explorer</title>
  
 <script type="text/javascript" src="js/d3.js"></script>
 <script type="text/javascript" src="js/crossfilter.js"></script>
@@ -45,10 +45,10 @@ body {
 
 			Click and drag and watch the graphs move and then when that gets old see ...
 			 <ol>
-				 <li>How many sales were there in <a href="javascript:filterYears([2011, 2012])">2011 and 2012</a>?
+				 <li>How many sales were there in <a href="javascript:filterYears([2016, 2017])">2016 and 2017</a>?
 				 <li>Which months are the <a href="javascript:filterMonths(['4.May', '8.September'])">busiest</a>?</li>
 				 <li>How does <a href="javascript:filterBubble(['Cork', 'Dublin'])">Cork compare to Dublin</a>?</li>
-				 <li>What happened to average house prices in Wicklow between <a href="javascript:filterCountyByYear('Wicklow', 2010)">2010</a> and <a href="javascript:filterCountyByYear('Wicklow', 2013)">2013</a>?</li>
+				 <li>What happened to average house prices in Wicklow between <a href="javascript:filterCountyByYear('Wicklow', 2010)">2010</a> and <a href="javascript:filterCountyByYear('Wicklow', 2017)">2017</a>?</li>
 				 <li>Are houses sold on <a href="javascript:filterDays(['6.Saturday', '0.Sunday'])">the weekend</a>?</li>
 				 <li>etc</li>
 				 </ol>
@@ -56,9 +56,9 @@ body {
 			</p>
 			<p>
 				The dataset in use here is not dynamically retrieved from the PPR website, it is taken from a static grab of all 
-				house sale data in the PPR as of Dec 13, 2013. The primary motivation here is to play around with data visualisation 
+				house sale data in the PPR as of June 21, 2017. The primary motivation here is to play around with data visualisation 
 				rather than to provide yet another PPR search tool; see <a href="http://www.myhome.ie/priceregister">this</a> 
-				and <a href="http://www.daft.ie/priceregister/">that</a> for interactive PPR search tools.
+				and <a href="http://www.daft.ie/priceregister/">that</a> for interactive PPR search tools. Note: the data displayed here is subject to the reuse conditions stipulated by the <a href="http://www.psr.ie/website/npsra/npsraweb.nsf/page/copyright-en">Property Services Regulatory Authority</a>.
 			</p>
 		 <div class='row'><div class='span12'>
 		 	

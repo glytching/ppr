@@ -7,7 +7,7 @@ var countByDateBarChart;
 var dataTable;
 
 // load the data file
-d3.csv("file:///Users/colm/dev/code/dataviz/data/PPR-mini.csv", function(houseSales) {
+d3.csv("data/PPR-All.csv", function(houseSales) {
 
 	// associate the charts with their html elements
 	yearRowChart = dc.rowChart("#chart-ring-years");
@@ -201,7 +201,7 @@ d3.csv("file:///Users/colm/dev/code/dataviz/data/PPR-mini.csv", function(houseSa
 		.elasticY(true)
 		.elasticX(true)
 		.gap(85)
-		.x(d3.time.scale().domain([new Date(2010, 1, 1), new Date(2013, 12, 31)]))
+		.x(d3.time.scale().domain([new Date(2010, 1, 1), new Date(2017, 12, 31)]))
 		.round(d3.time.month.round)
 		.xUnits(d3.time.months);
 
