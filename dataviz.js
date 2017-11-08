@@ -7,7 +7,7 @@ var countByDateBarChart;
 var dataTable;
 
 // load the data file
-d3.csv("data/PPR-All.csv", function(houseSales) {
+d3.csv("data/PPR-all.csv", function(houseSales) {
 
 	// associate the charts with their html elements
 	yearRowChart = dc.rowChart("#chart-ring-years");
