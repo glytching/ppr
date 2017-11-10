@@ -212,7 +212,8 @@ d3.csv("data/PPR-all.csv", function(houseSales) {
 		.group(function(d) {
 			return "";
 		})
-		.size(20)
+		// this is plenty for in-browser display
+		.size(1000)
 		.columns([
 			function(d) {
 				return d.dateAsString;
