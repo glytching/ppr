@@ -33,7 +33,7 @@ d3.csv("data/PPR-all.csv", function(houseSales) {
 		// remove the euro symbol and convert to a number
 		houseSale.price = +houseSale.price.replace(/[^\d.]/g, "");
 		
-		// gah, date manpulation ... 
+		// gah, date manipulation ...
 		houseSale.dateAsString = houseSale.date;
 		var dateParts = houseSale.date.split("/");
 		houseSale.date = new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
