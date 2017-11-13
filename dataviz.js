@@ -238,7 +238,7 @@ d3.csv("data/PPR-all.csv", function(houseSales) {
 			}
 		])
 		.sortBy(function(d) {
-			return d.date;
+			return d.price;
 		})
 		.order(d3.descending);
 
