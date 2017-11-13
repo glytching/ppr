@@ -11,6 +11,14 @@ This tool uses a static dump of the PPR data, so by the time you (or anyone) loo
 
 <img src="display.png" alt="Homepage"/>
 
+#### Browser Compatibility
+
+The web app has been tested and verified for the following browsers:
+
+* Safari 9.x
+* Firefox 51.0
+* Chrome 61.x (with 'same origin policy' disabled)
+
 #### Acknowledgement
 
 In accordance with the [PRSA's copyright conditions](http://www.psr.ie/website/npsra/npsraweb.nsf/page/copyright-en) it is hereby acknowledged that the PRSA is the source of this data and holds the copyright on this data. The data provided by PRSA:
