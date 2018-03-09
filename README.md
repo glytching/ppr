@@ -11,6 +11,10 @@ This tool uses a static dump of the PPR data, so by the time you (or anyone) loo
 
 <img src="display.png" alt="Homepage"/>
 
+#### Can I Use It?
+
+Sure, it is available [here](https://glytching.github.io/ppr/).
+
 #### Browser Compatibility
 
 The web app has been tested and verified for the following browsers:
