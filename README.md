@@ -13,7 +13,7 @@ This tool uses a static dump of the PPR data, so by the time you (or anyone) loo
 
 #### Can I Use It?
 
-Sure, it is available [here](https://glytching.github.io/ppr/).
+Sure, it is available [here](https://glytching.github.io/ppr/). When using it, bear in mind that the entire ~40MB dataset is loaded into your browser so it could take a few seconds to load. 
 
 #### Browser Compatibility
 
