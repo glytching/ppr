@@ -104,7 +104,7 @@ d3.csv("data/PPR-all.csv", function(houseSales) {
 	// configure the charts
 	yearRowChart
 		.width(300)
-		.height(250)
+		.height(350)
 		.dimension(yearDim)
 		.group(countPerYear)
 		.colors(d3.scale.category10())
@@ -148,8 +148,8 @@ d3.csv("data/PPR-all.csv", function(houseSales) {
 		.xAxis().ticks(2);
 
 	bubbleChart
-		.width(600)
-		.height(500)
+		.width(650)
+		.height(750)
 		.margins({
 			top: 50,
 			right: 0,
@@ -162,7 +162,7 @@ d3.csv("data/PPR-all.csv", function(houseSales) {
 		.colors(d3.scale.category10())
 		.x(d3.scale.linear().domain([25000, 450000]))
 		.y(d3.scale.linear().domain([0, 12000]))
-		.r(d3.scale.linear().domain([0, 5]))
+		.r(d3.scale.linear().domain([0, 6]))
 		.keyAccessor(function(p) {
 			return p.value.avg;
 		})
@@ -172,7 +172,6 @@ d3.csv("data/PPR-all.csv", function(houseSales) {
 		.radiusValueAccessor(function(p) {
 			return 0.5;
 		})
-		.transitionDuration(1500)
 		.elasticY(true)
 		.yAxisPadding(100)
 		.xAxisPadding(150)
@@ -188,7 +187,7 @@ d3.csv("data/PPR-all.csv", function(houseSales) {
 		.renderLabel(true);
 
 	countByDateBarChart
-		.width(600)
+		.width(650)
 		.height(400)
 		.margins({
 			top: 0,
